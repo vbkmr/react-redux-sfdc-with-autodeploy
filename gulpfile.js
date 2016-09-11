@@ -32,14 +32,14 @@ gulp.task( 'deploy', ['resource-build'], function() {
            password: process.env.SF_PASSWORD, //Should be set as wercker pipleine env. var
            loginUrl: process.env.SF_ENV_URL //Should be set as wercker pipleine env. var
        } ) )
-      .on('error', handleError(err));
+      .on('error', gutil.log);
 } );
 
 //Static resource build of webpack dist.
 gulp.task( 'resource-build', ['webpack'], function() {
    return gulp.src( './dist/*' ).pipe( zip( 'ReactSearchStatic.resource' ) )
               .pipe( gulp.dest( 'pkg/staticresources' ) )
-              .on('error', handleError(err));
+              .on('error', gutil.log);
 } );
 
 //Webpack build of react-redux
@@ -47,5 +47,5 @@ gulp.task( 'webpack', function() {
    return gulp.src( 'index.js' )
    .pipe(webpack( require('./webpack.config.js') ))
    .pipe( gulp.dest( './dist' ) )
-   .on('error', handleError(err));
+   .on('error', gutil.log);
 } );
