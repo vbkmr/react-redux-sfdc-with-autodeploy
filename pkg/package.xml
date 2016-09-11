@@ -4,5 +4,13 @@
         <members>ReactSearchStatic</members>
         <name>StaticResource</name>
     </types>
+    <types>
+        <members>MyReactAppApexController</members>
+        <name>ApexController</name>
+    </types>
+    <types>
+        <members>MyReactAppPage</members>
+        <name>ApexPage</name>
+    </types>
     <version>34.0</version>
 </Package>
