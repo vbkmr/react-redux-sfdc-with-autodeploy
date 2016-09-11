@@ -36,10 +36,6 @@ build:
           echo "npm version $(npm -v) running"
 
 deploy-sfdc-dev:
-  # The steps that will be executed on build
-  # Steps make up the actions in your pipeline
-  # Read more about steps on our dev center:
-  # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     # A step that executes `npm install` command
     - npm-install
@@ -54,10 +50,6 @@ deploy-sfdc-dev:
           gulp deploy
 
 deploy-sfdc-sandbox:
-  # The steps that will be executed on build
-  # Steps make up the actions in your pipeline
-  # Read more about steps on our dev center:
-  # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     # A step that executes `npm install` command
     - npm-install
@@ -71,10 +63,6 @@ deploy-sfdc-sandbox:
           gulp deploy
 
 deploy-sfdc-prod:
-  # The steps that will be executed on build
-  # Steps make up the actions in your pipeline
-  # Read more about steps on our dev center:
-  # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     # A step that executes `npm install` command
     - npm-install
