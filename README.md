@@ -1,6 +1,9 @@
 # react-sfdc-with-autodeploy
 a sample force.com app with react/redux front-end, using 'wercker' auto-deploy to build, test and deploy in force.com's dev, sandbox and production environment
 
+### Auto-deployment development methodology
+`Checkout to respective branch and commit, depending on the branch's corresponding wrecker's pipleine setting, committed code would be deployed accordingly. Enjoy hassle free coding and deployment`
+
 ### Flow of deployment
 `'React-Redux' SPA -> bundled using 'webpack' ->  Zipped and Deployed as static resource using 'jsforce-deploy' `
 
