@@ -79,3 +79,5 @@ deploy-sfdc-prod:
           gulp deploy
 `
 ![alt tag](https://cloud.githubusercontent.com/assets/6745332/18418537/5e215718-7883-11e6-8152-548835c6fab0.png)
+
+`Environmental variables for each environment should be added in Wrecker's pipelines Environmental Variable settings`
