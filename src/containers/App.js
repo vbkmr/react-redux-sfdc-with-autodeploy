@@ -33,8 +33,8 @@ class App extends Component {
     if(event.type == 'exception') {
          alert(event.message);
      } else {
-        //console.log(`result: ${JSON.stringify(result)}`)
-        this.setState({tableData: result, tableMessage: '一覧部 '})
+        console.log(`result: ${JSON.stringify(result)}`)
+        this.setState({tableData: JSON.stringify(result), tableMessage: '一覧部 '})
      }
      if(result == null || result.length == 0){
         this.setState({tableData: '',tableMessage: '一覧部 '})
@@ -49,7 +49,8 @@ class App extends Component {
     return (
       <div>
         <form className={styles['form-horizontal']} onSubmit={this.handleFormSubmit}>
-          <div className={classNames(styles['panel'],styles['panel-default'])}>
+          //<div className={classNames(styles['panel'],styles['panel-default'])}>
+          <div>
             <p>Fetch my Salesforce data app</p>
             <div className={classNames(styles['col-sm-offset-2'],styles['col-sm-8'])}>
               <button  type="submit" className={classNames(styles['btn'],styles['btn-block'],styles['btn-primary'])}>Fetch SOQL data</button>
