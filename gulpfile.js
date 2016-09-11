@@ -1,5 +1,7 @@
 
-// load modules
+/***********************/
+/* Modules loading*/
+/***********************/
 var gulp = require( 'gulp' );
 var webpack = require( 'gulp-webpack' );
 var zip = require( 'gulp-zip' );
@@ -11,7 +13,11 @@ var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 
 
-// Gulp tasks
+/***********************/
+/* Gulp tasks*/
+/***********************/
+
+//handle error when gulp task fails
 var handleError = function(err){
   gutil.log(err);
   process.exit(1); //break the stream with throwing error
