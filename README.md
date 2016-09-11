@@ -24,7 +24,8 @@ a sample force.com app with react/redux front-end, using 'wercker' auto-deploy t
 }`
 
 #### VisualForce Page
-`<apex:page standardstylesheets="false" showheader="false" sidebar="false"  applyHtmlTag="false" applyBodyTag="false" docType="html-5.0"
+`
+<apex:page standardstylesheets="false" showheader="false" sidebar="false"  applyHtmlTag="false" applyBodyTag="false" docType="html-5.0"
            controller="MyReactAppApexController">
     <html>
         <head>
@@ -37,7 +38,8 @@ a sample force.com app with react/redux front-end, using 'wercker' auto-deploy t
             </div>
         </body>
     </html>
-</apex:page>`
+</apex:page>
+`
 
 ### Auto-deployment tool 'wercker'
 `deploy-sfdc-dev:
