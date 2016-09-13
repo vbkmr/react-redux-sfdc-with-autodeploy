@@ -8,6 +8,15 @@ module.exports = {
     'webpack-hot-middleware/client',
     './index'
   ],
+  devServer: {
+    hot: true,
+    inline: true,
+    port: 7700,
+    historyApiFallback: true,
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -21,6 +30,11 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   module: {
     loaders: [
       {
