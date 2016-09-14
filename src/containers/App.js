@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import classNames from 'classnames'
-import styles from '../resources/bootstrap/css/bootstrap.min.css'
+import ResultTable from '../components/ResultTable.js'
+import SearchForm from '../components/SearchForm.js'
 
 /***************************************************************************************
 SPA components are defined here, along with their prop types and '{connect}' features i.e.
@@ -23,7 +24,7 @@ class App extends Component {
   }
 
   handleFormSubmit(){
-    var queryParams = {}
+    var queryParams = {} //todo: support more query variables
     MyReactAppApexController.getSearchedAccounts(JSON.stringify(queryParams), this.handleRemoteLoginAction)
   }
 
@@ -42,32 +43,19 @@ class App extends Component {
   }
 
   render() {
-    let tableData
-    if(this.state.tableData === '')
-       tableData = 'No records to display.'
-    else tableData = this.state.tableData
+    let sampleTableData = [{A: ' VALUE',B: ' VALUE'},{A:'VALUE',B: ' VALUE'}]
     return (
       <div>
-        <form className={styles['form-horizontal']} onSubmit={this.handleFormSubmit}>
-          //<div className={classNames(styles['panel'],styles['panel-default'])}>
-          <div>
-            <p>Fetch my Salesforce data app</p>
-            <div className={classNames(styles['col-sm-offset-2'],styles['col-sm-8'])}>
-              <button  type="submit" className={classNames(styles['btn'],styles['btn-block'],styles['btn-primary'])}>Fetch SOQL data</button>
-            </div>
-            {tableData}
-          </div>
-        </form>
+        <SearchForm fetchSOQLBtnClickHandler={this.handleFormSubmit}/>
+        <ResultTable tableData={sampleTableData}/>
       </div>
     )
   }
 }
 
-App.propTypes = {
-}
-
 //Store's state is mapped to props
 function mapStateToProps(state) {
+  //TODO: Map the store state to tableData
   return {
   }
 }
@@ -75,6 +63,8 @@ function mapStateToProps(state) {
 //Store's dispatch is mapped to props here
 function mapDispatchToProps(dispatch) {
   return {
+    //TODO: Dispatch fetch method action
   }
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(App)
