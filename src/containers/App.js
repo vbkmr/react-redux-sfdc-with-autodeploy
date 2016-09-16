@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div>
         <SearchForm fetchSOQLBtnClickHandler={this.handleFormSubmit}/>
-        <ResultTable tableData={sampleTableData}/>
+        <ResultTable tableData={sampleTableData}/> //TODO: data update after-fetch logic
       </div>
     )
   }
