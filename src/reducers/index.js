@@ -3,7 +3,7 @@ import {
   REQUEST_SOQL_ACCDATA,
   RECEIVED_SOQL_ACCDATA,
   REQUEST_FAILED_SOQL_ACCDATA
-} from '../actions'
+} from '../actions/index.js'
 
 /***************************************************************************************
 Defines state conversion for each action, later all reducers would be conflated to make store

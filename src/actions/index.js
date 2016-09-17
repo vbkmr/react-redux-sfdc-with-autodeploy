@@ -14,7 +14,7 @@ Action composers, make actions i.e. a javascript object containing
 ********************************************************************************************/
 export function requestSOQLAccountData(){
   return{
-    type: FETCH_SOQL_ACCDATA
+    type: REQUEST_SOQL_ACCDATA
   }
 }
 

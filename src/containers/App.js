@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import ResultTable from '../components/ResultTable.js'
 import SearchForm from '../components/SearchForm.js'
+import { requestSOQLAccountData,
+         receivedRequestSOQLAccountData,
+         failedRequestSOQLAccountData,
+         fetchSOQLAccountData } from '../actions/index.js'
 
 /***************************************************************************************
 SPA components are defined here, along with their prop types and '{connect}' features i.e.
@@ -12,17 +16,11 @@ how the stores' state and dispatch are mapped to the props fo the component
 class App extends Component {
   constructor(props) {
     super(props)
-    this.handleRemoteLoginAction = this.handleRemoteLoginAction.bind(this)
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    //this.handleRemoteLoginAction = this.handleRemoteLoginAction.bind(this)
+    //this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
-  componentDidMount() {
-    this.setState({tableData: '', tableMessage: '一覧部 '})
-  }
-
-  componentWillReceiveProps(nextProps) {
-  }
-
+/*
   handleFormSubmit(){
     var queryParams = {} //todo: support more query variables
     MyReactAppApexController.getSearchedAccounts(JSON.stringify(queryParams), this.handleRemoteLoginAction)
@@ -41,29 +39,38 @@ class App extends Component {
         this.setState({tableData: '',tableMessage: '一覧部 '})
      }
   }
+*/
 
   render() {
     let sampleTableData = [{A: ' VALUE',B: ' VALUE'},{A:'VALUE',B: ' VALUE'}]
     return (
       <div>
-        <SearchForm fetchSOQLBtnClickHandler={this.handleFormSubmit}/>
-        <ResultTable tableData={sampleTableData}/> //TODO: data update after-fetch logic
+        <SearchForm fetchSOQLBtnClickHandler={this.props.handleFormSubmit}/>
+        <ResultTable tableData={this.props.tableData}/>
       </div>
     )
   }
 }
 
+App.propTypes = {
+  handleFormSubmit : PropTypes.func.isRequired,
+  tableData : PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+}
+
 //Store's state is mapped to props
 function mapStateToProps(state) {
-  //TODO: Map the store state to tableData
+  const {items} = state
+  const tableData = []
+  Array.prototype.push.apply(tableData,items)
   return {
+    tableData
   }
 }
 
 //Store's dispatch is mapped to props here
 function mapDispatchToProps(dispatch) {
   return {
-    //TODO: Dispatch fetch method action
+    handleFormSubmit : ()=> dispatch(requestSOQLAccountData)
   }
 }
 
