@@ -1,13 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import classNames from 'classnames'
 import ResultTable from '../components/ResultTable.js'
 import SearchForm from '../components/SearchForm.js'
-import { requestSOQLAccountData,
-         receivedRequestSOQLAccountData,
-         failedRequestSOQLAccountData,
-         fetchSOQLAccountData } from '../actions/index.js'
+import { fetchSOQLAccountData } from '../actions/index.js'
 
 /***************************************************************************************
 SPA components are defined here, along with their prop types and '{connect}' features i.e.
@@ -47,7 +45,7 @@ function mapStateToProps(state) {
 //Store's dispatch is mapped to props here
 function mapDispatchToProps(dispatch) {
   return {
-    handleFormSubmit : ()=> dispatch(fetchSOQLAccountData)
+    handleFormSubmit : bindActionCreators(fetchSOQLAccountData, dispatch)
   }
 }
 

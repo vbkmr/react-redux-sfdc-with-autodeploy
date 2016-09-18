@@ -35,22 +35,23 @@ export function failedRequestSOQLAccountData(error){
 
 //Since using thunk action creator, dispatch is also passed to action creator function
 export function fetchSOQLAccountData(){
+  return (dispatch)=> {
+    //request soql query
+    dispatch(requestSOQLAccountData())
 
-  //request soql query
-  dispatch(requestSOQLAccountData())
-
-  //fetching data through Apex remote action
-  var queryParams = {} //todo: support more query variables
-  return MyReactAppApexController.getSearchedAccounts(JSON.stringify(queryParams), (result,event) =>{
-    //console.log(`result: ${JSON.stringify(result)}, event: ${JSON.stringify(event)}`)
-    if(event.type == 'exception') {
-         dispatch(failedRequestSOQLAccountData(event.message))
-     } else {
-        console.log(`result: ${JSON.stringify(result)}`)
-        dispatch(receivedRequestSOQLAccountData(result))
-     }
-     if(result == null || result.length == 0){
-       dispatch(failedRequestSOQLAccountData('OOPS! No accont records found for the query.'))
-     }
-  })
+    //fetching data through Apex remote action
+    var queryParams = {} //todo: support more query variables
+    return MyReactAppApexController.getSearchedAccounts(JSON.stringify(queryParams), (result,event) =>{
+      //console.log(`result: ${JSON.stringify(result)}, event: ${JSON.stringify(event)}`)
+      if(event.type == 'exception') {
+           dispatch(failedRequestSOQLAccountData(event.message))
+       } else {
+          console.log(`result: ${JSON.stringify(result)}`)
+          dispatch(receivedRequestSOQLAccountData(result))
+       }
+       if(result == null || result.length == 0){
+         dispatch(failedRequestSOQLAccountData('OOPS! No accont records found for the query.'))
+       }
+    })
+  }
 }
