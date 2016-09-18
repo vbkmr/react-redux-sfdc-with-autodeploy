@@ -31,7 +31,7 @@ function fetchSOQL(state = {
         didInvalidate : false,
         didFail : false,
         failureMessage : '',
-        items : action.response.items
+        items : action.response
       })
 
     case REQUEST_FAILED_SOQL_ACCDATA:
