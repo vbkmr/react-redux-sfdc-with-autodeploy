@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch' //somorphic WHATWG Fetch API
+import fetch from 'isomorphic-fetch' // WHATWG Fetch API
 
 /***************************************************************************************
 action types, should be split into a separate module for bigger application

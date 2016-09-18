@@ -16,30 +16,7 @@ how the stores' state and dispatch are mapped to the props fo the component
 class App extends Component {
   constructor(props) {
     super(props)
-    //this.handleRemoteLoginAction = this.handleRemoteLoginAction.bind(this)
-    //this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
-
-/*
-  handleFormSubmit(){
-    var queryParams = {} //todo: support more query variables
-    MyReactAppApexController.getSearchedAccounts(JSON.stringify(queryParams), this.handleRemoteLoginAction)
-  }
-
-  //HANDLES remote-action return value from Force.com
-  handleRemoteLoginAction(result,event){
-    //console.log(`result: ${JSON.stringify(result)}, event: ${JSON.stringify(event)}`)
-    if(event.type == 'exception') {
-         alert(event.message);
-     } else {
-        console.log(`result: ${JSON.stringify(result)}`)
-        this.setState({tableData: JSON.stringify(result), tableMessage: '一覧部 '})
-     }
-     if(result == null || result.length == 0){
-        this.setState({tableData: '',tableMessage: '一覧部 '})
-     }
-  }
-*/
 
   render() {
     let sampleTableData = [{A: ' VALUE',B: ' VALUE'},{A:'VALUE',B: ' VALUE'}]
@@ -70,7 +47,7 @@ function mapStateToProps(state) {
 //Store's dispatch is mapped to props here
 function mapDispatchToProps(dispatch) {
   return {
-    handleFormSubmit : ()=> dispatch(requestSOQLAccountData)
+    handleFormSubmit : ()=> dispatch(fetchSOQLAccountData)
   }
 }
 
