@@ -9,7 +9,7 @@ class ResultTable extends Component{
 
   render(){
     return(
-        <BootstrapTable data={this.props.tableData} striped={true} hover={true}>
+        <BootstrapTable data={this.props.tableData} striped={true} hover={true} pagination={true}>
           <TableHeaderColumn isKey={true} dataField="Id"> ID</TableHeaderColumn>
           <TableHeaderColumn dataField="Name">Account name</TableHeaderColumn>
           <TableHeaderColumn dataField="AccountNumber">Account number</TableHeaderColumn>
